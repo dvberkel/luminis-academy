@@ -6,8 +6,6 @@ use warnings;
 use FindBin '$Bin';
 use lib "$Bin";
 
-use Luminis::Academy qw(findGreatestSteppingStone nextSteppingStone);
+use Luminis::Academy qw(createNextSteppingStone);
 
-print findGreatestSteppingStone(),"\n";
-print nextSteppingStone(), "\n";
-print nextSteppingStone(findGreatestSteppingStone()), "\n";
+createNextSteppingStone();

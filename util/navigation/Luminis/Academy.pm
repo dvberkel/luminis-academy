@@ -8,7 +8,7 @@ require Exporter;
 our $VERSION = '1.00';
 
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(findGreatestSteppingStone nextSteppingStone);
+our @EXPORT_OK = qw(createNextSteppingStone);
 
 sub currentBranch {
 	my $branches = `git branch`;
@@ -43,4 +43,10 @@ sub nextSteppingStone {
 	}
 	$step++;
 	return currentBranch() . "-" . $step;
+}
+
+sub createNextSteppingStone {
+	my $currentSteppingStone = findGreatestSteppingStone();
+	my $nextSteppingStone = nextSteppingStone($currentSteppingStone);
+	system("git tag -a -m 'next step' $nextSteppingStone");
 }
