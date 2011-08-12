@@ -6,6 +6,6 @@ use warnings;
 use FindBin '$Bin';
 use lib "$Bin";
 
-use Luminis::Academy qw(currentBranch);
+use Luminis::Academy qw(findGreatestSteppingStone);
 
-print currentBranch();
+print findGreatestSteppingStone(),"\n";
