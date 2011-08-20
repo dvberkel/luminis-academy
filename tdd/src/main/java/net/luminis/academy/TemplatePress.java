@@ -6,4 +6,9 @@ public class TemplatePress
 	{
 		throw new IllegalArgumentException();
 	}
+
+	public TemplatePress(String template)
+	{
+		throw new IllegalArgumentException();
+	}
 }
