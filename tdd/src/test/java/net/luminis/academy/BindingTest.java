@@ -44,4 +44,12 @@ public class BindingTest
 	{
 		Binding binding = new UnBound(null);
 	}
+
+	@Test
+	public void unBoundShouldBeCreatedWithAVariable()
+	{
+		Binding binding = new UnBound("variable");
+
+		assertNotNull(binding);
+	}
 }
