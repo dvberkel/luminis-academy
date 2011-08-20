@@ -18,7 +18,7 @@ public class UnBound implements Binding
 	@Override
 	public String apply(String template)
 	{
-		return null;
+		throw new IllegalStateException();
 	}
 
 }
