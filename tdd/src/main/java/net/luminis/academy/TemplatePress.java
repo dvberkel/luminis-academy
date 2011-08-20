@@ -4,7 +4,7 @@ public class TemplatePress
 {
 	public TemplatePress()
 	{
-		throw new IllegalArgumentException();
+		this(null);
 	}
 
 	public TemplatePress(String template)
