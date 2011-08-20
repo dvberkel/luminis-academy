@@ -21,4 +21,19 @@ public class TemplatePress
 	{
 		return template;
 	}
+
+	public Binding bind(String substitution)
+	{
+		return new Binding();
+	}
+
+	class Binding
+	{
+
+		public void to(String value)
+		{
+
+		}
+
+	}
 }
