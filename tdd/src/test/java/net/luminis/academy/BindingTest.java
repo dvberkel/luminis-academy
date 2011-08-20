@@ -2,6 +2,7 @@ package net.luminis.academy;
 
 import net.luminis.academy.binding.Binding;
 import net.luminis.academy.binding.Bound;
+import net.luminis.academy.binding.UnBound;
 
 import org.junit.Test;
 
@@ -36,5 +37,11 @@ public class BindingTest
 		Binding binding = new Bound("species", "earthling");
 
 		assertEquals("earthling", binding.apply("{{species}}"));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void unBoundShouldFailWithoutAVariable()
+	{
+		Binding binding = new UnBound(null);
 	}
 }
