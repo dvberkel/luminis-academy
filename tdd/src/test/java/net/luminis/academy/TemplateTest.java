@@ -31,4 +31,12 @@ public class TemplateTest
 
 		assertEquals("Hello World!", templatePress.press());
 	}
+
+	@Test
+	public void shouldReturnTemplateIfThereAreNoSubstitutionsForReal()
+	{
+		TemplatePress templatePress = new TemplatePress("Goodbye World!");
+
+		assertEquals("Goodbye World!", templatePress.press());
+	}
 }
