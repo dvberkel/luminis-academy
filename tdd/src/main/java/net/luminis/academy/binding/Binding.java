@@ -5,4 +5,6 @@ public interface Binding
 
 	Binding to(String string);
 
+	String apply(String template);
+
 }
