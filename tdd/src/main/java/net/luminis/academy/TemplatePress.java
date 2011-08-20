@@ -2,6 +2,8 @@ package net.luminis.academy;
 
 public class TemplatePress
 {
+	private final String template;
+
 	public TemplatePress()
 	{
 		this(null);
@@ -11,10 +13,12 @@ public class TemplatePress
 	{
 		if (template == null)
 			throw new IllegalArgumentException();
+
+		this.template = template;
 	}
 
 	public String press()
 	{
-		return "Hello World!";
+		return template;
 	}
 }
