@@ -60,4 +60,12 @@ public class BindingTest
 
 		binding.apply("template");
 	}
+
+	@Test
+	public void unBoundCanCreateBoundToAValue()
+	{
+		Binding binding = new UnBound("variable");
+
+		assertEquals(new Bound("variable", "value"), binding.to("value"));
+	}
 }
