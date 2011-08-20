@@ -11,4 +11,10 @@ public class TemplateTest
 	{
 		assertNotNull(TemplatePress.class);
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void shouldFailWhenInstantiatedWithoutATemplate()
+	{
+		new TemplatePress();
+	}
 }
