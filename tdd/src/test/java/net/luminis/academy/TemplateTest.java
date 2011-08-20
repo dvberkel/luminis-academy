@@ -17,4 +17,10 @@ public class TemplateTest
 	{
 		new TemplatePress();
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void shouldFailWhenInstantiatedWithoutANull()
+	{
+		new TemplatePress(null);
+	}
 }
