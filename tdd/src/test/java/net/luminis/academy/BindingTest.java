@@ -5,6 +5,7 @@ import net.luminis.academy.binding.Bound;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class BindingTest
@@ -27,5 +28,13 @@ public class BindingTest
 		Binding binding = new Bound("variable", "value");
 
 		assertNotNull(binding);
+	}
+
+	@Test
+	public void boundShouldSubstituteValueForVariableInTemplate()
+	{
+		Binding binding = new Bound("species", "earthling");
+
+		assertEquals("earthling", binding.apply("{{species}}"));
 	}
 }
