@@ -52,4 +52,12 @@ public class BindingTest
 
 		assertNotNull(binding);
 	}
+
+	@Test(expected = IllegalStateException.class)
+	public void unBoundFailsWhenItAppliesItself()
+	{
+		Binding binding = new UnBound("variable");
+
+		binding.apply("template");
+	}
 }
