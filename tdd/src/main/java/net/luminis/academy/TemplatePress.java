@@ -1,5 +1,7 @@
 package net.luminis.academy;
 
+import net.luminis.academy.binding.Binding;
+
 public class TemplatePress
 {
 	private final String template;
@@ -24,16 +26,19 @@ public class TemplatePress
 
 	public Binding bind(String substitution)
 	{
-		return new Binding();
+		return new BindingRepository().bind(substitution);
 	}
+}
 
-	class Binding
+class BindingRepository
+{
+	public BindingRepository()
 	{
 
-		public void to(String value)
-		{
+	}
 
-		}
-
+	public Binding bind(String substitution)
+	{
+		return null;
 	}
 }
