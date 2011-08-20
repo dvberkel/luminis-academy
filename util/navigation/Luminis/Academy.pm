@@ -68,6 +68,7 @@ sub lastCommitAsSteppingStone {
 				my $sha = $+{'sha'};
 				system("git checkout $course");
 				system("git cherry-pick $sha");
+				createNextSteppingStone();
 				system("git checkout $branch");
 			}
 		}
