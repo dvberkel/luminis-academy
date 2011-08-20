@@ -39,4 +39,13 @@ public class TemplateTest
 
 		assertEquals("Goodbye World!", templatePress.press());
 	}
+
+	@Test
+	public void shouldBeAbleToBindSubstutitutions()
+	{
+		TemplatePress templatePress = new TemplatePress("Greetings {{species}}");
+		templatePress.bind("species").to("Earthlings");
+
+		assertEquals("Greetings Earthlings", templatePress.press());
+	}
 }
