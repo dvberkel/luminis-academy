@@ -9,6 +9,12 @@ public class TemplatePress
 
 	public TemplatePress(String template)
 	{
-		throw new IllegalArgumentException();
+		if (template == null)
+			throw new IllegalArgumentException();
+	}
+
+	public String press()
+	{
+		return "Hello World!";
 	}
 }
