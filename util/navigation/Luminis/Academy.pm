@@ -8,7 +8,7 @@ require Exporter;
 our $VERSION = '1.00';
 
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(createCourse createNextSteppingStone);
+our @EXPORT_OK = qw(createCourse createNextSteppingStone lastCommitAsSteppingStone);
 
 sub currentBranch {
 	my $branches = `git branch`;
@@ -56,4 +56,20 @@ sub createCourse {
 	my $branch = shift @_;
 	system("git checkout -b $course $branch");
 	createNextSteppingStone();
+}
+
+sub lastCommitAsSteppingStone {
+	my $branch = currentBranch();
+	if ($branch) {
+		if ($branch =~ m/(?<course>\w+)-/) {
+			my $course = $+{'course'};
+			my $logs = `git log -1`;
+			if ($logs =~ m/commit (?<sha>[0-9a-zA-Z]+)/) {
+				my $sha = $+{'sha'};
+				system("git checkout $course");
+				system("git cherry-pick $sha");
+				system("git checkout $branch");
+			}
+		}
+	}
 }
