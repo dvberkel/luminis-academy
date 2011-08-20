@@ -12,7 +12,7 @@ our @EXPORT_OK = qw(createCourse createNextSteppingStone lastCommitAsSteppingSto
 
 sub currentBranch {
 	my $branches = `git branch`;
-	if ($branches =~ m/^\*\s(?<branch>.+)/m) {
+	if ($branches =~ m/^\*\s(?<branch>\S+)/m) {
 		return $+{'branch'}
 	}
 	return ""
