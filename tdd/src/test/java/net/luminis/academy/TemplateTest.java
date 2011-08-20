@@ -23,4 +23,12 @@ public class TemplateTest
 	{
 		new TemplatePress(null);
 	}
+
+	@Test
+	public void shouldReturnTemplateIfThereAreNoSubstitutions()
+	{
+		TemplatePress templatePress = new TemplatePress("Hello World!");
+
+		assertEquals("Hello World!", templatePress.press());
+	}
 }
