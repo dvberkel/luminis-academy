@@ -5,7 +5,8 @@ public class BindingRepository
 
 	public BindingRepository(String template)
 	{
-		throw new IllegalArgumentException();
+		if (template == null)
+			throw new IllegalArgumentException();
 	}
 
 }
