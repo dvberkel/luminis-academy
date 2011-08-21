@@ -2,6 +2,7 @@ package net.luminis.academy.binding;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class BindingRepositoryTest
@@ -31,6 +32,18 @@ public class BindingRepositoryTest
 	{
 		BindingRepository repository = new BindingRepository("{{aVariable}}");
 
+		@SuppressWarnings("unused")
 		Binding binding = repository.bind("aVariable").to("aValue");
+	}
+
+	@Test
+	public void shouldBeAbleApplyAllBindingsToTheTemplate()
+	{
+		BindingRepository repository = new BindingRepository("{{greeting}} {{subject}}");
+
+		repository.bind("greeting").to("Hello");
+		repository.bind("subject").to("World");
+
+		assertEquals("Hello World", repository.apply());
 	}
 }
