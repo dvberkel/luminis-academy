@@ -75,6 +75,6 @@ public class BindingTest
 		Binding binding = new Bound("species", "marslings");
 
 		assertEquals(new Bound("species", "earthling"), binding.to("earthling"));
-		assertEquals(new Bound("species", "marsling"), binding);
+		assertEquals(new Bound("species", "marslings"), binding);
 	}
 }
