@@ -16,9 +16,9 @@ public class Bound implements Binding
 	}
 
 	@Override
-	public Binding to(String string)
+	public Binding to(String otherValue)
 	{
-		return null;
+		return new Bound(variable, otherValue);
 	}
 
 	@Override
@@ -62,5 +62,11 @@ public class Bound implements Binding
 		else if (!variable.equals(other.variable))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("{{%s}} -> %s", variable, value);
 	}
 }
