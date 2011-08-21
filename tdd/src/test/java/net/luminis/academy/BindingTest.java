@@ -77,4 +77,10 @@ public class BindingTest
 		assertEquals(new Bound("species", "earthling"), binding.to("earthling"));
 		assertEquals(new Bound("species", "marslings"), binding);
 	}
+
+	@Test
+	public void unBoundsAreEqualByValue()
+	{
+		assertEquals(new UnBound("variable"), new UnBound("variable"));
+	}
 }
