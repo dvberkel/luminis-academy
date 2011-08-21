@@ -1,6 +1,5 @@
 package net.luminis.academy;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -42,7 +41,6 @@ public class TemplateTest
 		assertEquals("Goodbye World!", templatePress.press());
 	}
 
-	@Ignore
 	@Test
 	public void shouldBeAbleToBindSubstutitutions()
 	{
