@@ -9,4 +9,8 @@ public class BindingRepository
 			throw new IllegalArgumentException();
 	}
 
+	public Binding bind(String variable)
+	{
+		throw new IllegalStateException();
+	}
 }
