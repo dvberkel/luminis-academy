@@ -5,8 +5,6 @@ import net.luminis.academy.binding.BindingRepository;
 
 public class TemplatePress
 {
-	private final String template;
-
 	private final BindingRepository bindingRepository;
 
 	public TemplatePress()
@@ -19,8 +17,7 @@ public class TemplatePress
 		if (template == null)
 			throw new IllegalArgumentException();
 
-		this.template = template;
-		this.bindingRepository = new BindingRepository(this.template);
+		this.bindingRepository = new BindingRepository(template);
 	}
 
 	public String press()
