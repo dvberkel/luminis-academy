@@ -68,4 +68,13 @@ public class BindingTest
 
 		assertEquals(new Bound("variable", "value"), binding.to("value"));
 	}
+
+	@Test
+	public void boundCanBeReboundToAValue()
+	{
+		Binding binding = new Bound("species", "marslings");
+
+		assertEquals(new Bound("species", "earthling"), binding.to("earthling"));
+		assertEquals(new Bound("species", "marsling"), binding);
+	}
 }
