@@ -1,10 +1,13 @@
 package net.luminis.academy;
 
 import net.luminis.academy.binding.Binding;
+import net.luminis.academy.binding.BindingRepository;
 
 public class TemplatePress
 {
 	private final String template;
+
+	private final BindingRepository bindingRepository;
 
 	public TemplatePress()
 	{
@@ -17,28 +20,16 @@ public class TemplatePress
 			throw new IllegalArgumentException();
 
 		this.template = template;
+		this.bindingRepository = new BindingRepository(this.template);
 	}
 
 	public String press()
 	{
-		return template;
+		return bindingRepository.apply();
 	}
 
 	public Binding bind(String substitution)
 	{
-		return new BindingRepository().bind(substitution);
-	}
-}
-
-class BindingRepository
-{
-	public BindingRepository()
-	{
-
-	}
-
-	public Binding bind(String substitution)
-	{
-		return null;
+		return bindingRepository.bind(substitution);
 	}
 }
