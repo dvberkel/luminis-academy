@@ -25,4 +25,12 @@ public class BindingRepositoryTest
 
 		Binding binding = repository.bind("otherVariable");
 	}
+
+	@Test
+	public void shouldBeAbleToBindVariableToAValue()
+	{
+		BindingRepository repository = new BindingRepository("{{aVariable}}");
+
+		Binding binding = repository.bind("aVariable").to("aValue");
+	}
 }
