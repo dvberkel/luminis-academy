@@ -3,18 +3,18 @@ package net.luminis.academy;
 import net.luminis.academy.binding.Binding;
 import net.luminis.academy.binding.BindingRepository;
 
-public class TemplatePress
+public class TemplateEngine
 {
 	private final BindingRepository bindingRepository;
 
 	private final String template;
 
-	public TemplatePress()
+	public TemplateEngine()
 	{
 		this(null);
 	}
 
-	public TemplatePress(String template)
+	public TemplateEngine(String template)
 	{
 		if (template == null)
 			throw new IllegalArgumentException();
