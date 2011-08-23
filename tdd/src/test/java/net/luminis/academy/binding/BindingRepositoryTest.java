@@ -38,13 +38,13 @@ public class BindingRepositoryTest
 	}
 
 	@Test
-	public void shouldBeAbleApplyAllBindingsToTheTemplate()
+	public void shouldBeAbleApplyAllBindingsToATemplate()
 	{
 		BindingRepository repository = new BindingRepository("{{greeting}} {{subject}}");
 
 		repository.bind("greeting").to("Hello");
 		repository.bind("subject").to("World");
 
-		assertEquals("Hello World", repository.apply());
+		assertEquals("Hello World", repository.applyTo("{{greeting}} {{subject}}"));
 	}
 }
