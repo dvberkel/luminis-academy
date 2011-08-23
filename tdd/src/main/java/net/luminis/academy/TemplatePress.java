@@ -25,7 +25,7 @@ public class TemplatePress
 
 	public String press()
 	{
-		return bindingRepository.apply();
+		return bindingRepository.applyTo(template);
 	}
 
 	public Binding bind(String substitution)

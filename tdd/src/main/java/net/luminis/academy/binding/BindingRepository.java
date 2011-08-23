@@ -40,7 +40,7 @@ public class BindingRepository
 		return bindings.get(variable);
 	}
 
-	public String apply()
+	public String applyTo(String template)
 	{
 		String result = template;
 		for (Binding binding : bindings.values())
