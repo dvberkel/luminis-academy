@@ -25,6 +25,7 @@ public class BindingRepositoryTest
 		BindingRepository repository = new BindingRepository("{{aVariable}}");
 
 		Binding binding = repository.bind("otherVariable");
+		assertNotNull(binding);
 	}
 
 	@Test
