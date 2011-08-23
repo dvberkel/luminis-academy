@@ -7,22 +7,16 @@ import static org.junit.Assert.assertNotNull;
 
 public class BindingRepositoryTest
 {
-	@Test(expected = IllegalArgumentException.class)
-	public void shouldFailWhenInstantiatedWithoutATemplate()
+	@Test
+	public void shouldBeAbleToBeCreated()
 	{
-		new BindingRepository(null);
+		assertNotNull(new BindingRepository());
 	}
 
 	@Test
-	public void shouldBeCreatedWithATemplate()
+	public void shouldBeAbleToBindAVariable()
 	{
-		assertNotNull(new BindingRepository("Hello World"));
-	}
-
-	@Test
-	public void shouldBeAbleToBindASubstitutionWhichIsNotPresentInTemplate()
-	{
-		BindingRepository repository = new BindingRepository("{{aVariable}}");
+		BindingRepository repository = new BindingRepository();
 
 		Binding binding = repository.bind("otherVariable");
 		assertNotNull(binding);
@@ -31,7 +25,7 @@ public class BindingRepositoryTest
 	@Test
 	public void shouldBeAbleToBindVariableToAValue()
 	{
-		BindingRepository repository = new BindingRepository("{{aVariable}}");
+		BindingRepository repository = new BindingRepository();
 
 		@SuppressWarnings("unused")
 		Binding binding = repository.bind("aVariable").to("aValue");
@@ -40,7 +34,7 @@ public class BindingRepositoryTest
 	@Test
 	public void shouldBeAbleApplyAllBindingsToATemplate()
 	{
-		BindingRepository repository = new BindingRepository("{{greeting}} {{subject}}");
+		BindingRepository repository = new BindingRepository();
 
 		repository.bind("greeting").to("Hello");
 		repository.bind("subject").to("World");
