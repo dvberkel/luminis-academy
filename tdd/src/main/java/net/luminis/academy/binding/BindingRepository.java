@@ -35,6 +35,8 @@ public class BindingRepository
 
 	public Binding bind(String variable)
 	{
+		if (!bindings.containsKey(variable))
+			bindings.put(variable, new BindingWrapper(new UnBound(variable)));
 		return bindings.get(variable);
 	}
 
