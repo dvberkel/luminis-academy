@@ -9,25 +9,25 @@ public class TemplateTest
 	@Test
 	public void shouldExist()
 	{
-		assertNotNull(TemplatePress.class);
+		assertNotNull(TemplateEngine.class);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void shouldFailWhenInstantiatedWithoutATemplate()
 	{
-		new TemplatePress();
+		new TemplateEngine();
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void shouldFailWhenInstantiatedWithoutANull()
 	{
-		new TemplatePress(null);
+		new TemplateEngine(null);
 	}
 
 	@Test
 	public void shouldReturnTemplateIfThereAreNoSubstitutions()
 	{
-		TemplatePress templatePress = new TemplatePress("Hello World!");
+		TemplateEngine templatePress = new TemplateEngine("Hello World!");
 
 		assertEquals("Hello World!", templatePress.press());
 	}
@@ -35,7 +35,7 @@ public class TemplateTest
 	@Test
 	public void shouldReturnTemplateIfThereAreNoSubstitutionsForReal()
 	{
-		TemplatePress templatePress = new TemplatePress("Goodbye World!");
+		TemplateEngine templatePress = new TemplateEngine("Goodbye World!");
 
 		assertEquals("Goodbye World!", templatePress.press());
 	}
@@ -43,7 +43,7 @@ public class TemplateTest
 	@Test
 	public void shouldBeAbleToBindSubstutitutions()
 	{
-		TemplatePress templatePress = new TemplatePress("Greetings {{species}}");
+		TemplateEngine templatePress = new TemplateEngine("Greetings {{species}}");
 		templatePress.bind("species").to("Earthlings");
 
 		assertEquals("Greetings Earthlings", templatePress.press());
@@ -52,7 +52,7 @@ public class TemplateTest
 	@Test(expected = IllegalStateException.class)
 	public void shouldNotBeAbleToBindVariableNotInTemplate()
 	{
-		TemplatePress templatePress = new TemplatePress("{{aVariable}}");
+		TemplateEngine templatePress = new TemplateEngine("{{aVariable}}");
 
 		templatePress.bind("otherVariable");
 	}
