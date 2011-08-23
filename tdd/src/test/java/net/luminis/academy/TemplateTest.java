@@ -48,4 +48,12 @@ public class TemplateTest
 
 		assertEquals("Greetings Earthlings", templatePress.press());
 	}
+
+	@Test(expected = IllegalStateException.class)
+	public void shouldNotBeAbleToBindVariableNotInTemplate()
+	{
+		TemplatePress templatePress = new TemplatePress("{{aVariable}}");
+
+		templatePress.bind("otherVariable");
+	}
 }
