@@ -23,7 +23,7 @@ public class TemplateEngine
 		this.bindingRepository = new BindingRepository();
 	}
 
-	public String press()
+	public String apply()
 	{
 		return bindingRepository.applyTo(template);
 	}
