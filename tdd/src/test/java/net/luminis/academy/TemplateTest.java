@@ -56,4 +56,13 @@ public class TemplateTest
 
 		templatePress.bind("otherVariable");
 	}
+
+	@Test(expected = IllegalStateException.class)
+	public void shouldFailIfNotAllVariablesAreBound()
+	{
+		TemplateEngine templateEngine = new TemplateEngine("{{aVariable}} {{otherVariabel}}");
+		templateEngine.bind("aVariable").to("aValue");
+
+		templateEngine.apply();
+	}
 }
