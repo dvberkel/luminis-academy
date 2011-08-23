@@ -7,6 +7,8 @@ public class TemplatePress
 {
 	private final BindingRepository bindingRepository;
 
+	private final String template;
+
 	public TemplatePress()
 	{
 		this(null);
@@ -17,6 +19,7 @@ public class TemplatePress
 		if (template == null)
 			throw new IllegalArgumentException();
 
+		this.template = template;
 		this.bindingRepository = new BindingRepository(template);
 	}
 
@@ -27,6 +30,9 @@ public class TemplatePress
 
 	public Binding bind(String substitution)
 	{
+		if (!template.contains(String.format("{{%s}}", substitution)))
+			throw new IllegalStateException();
+
 		return bindingRepository.bind(substitution);
 	}
 }

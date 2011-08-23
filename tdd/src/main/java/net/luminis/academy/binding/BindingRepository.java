@@ -35,9 +35,6 @@ public class BindingRepository
 
 	public Binding bind(String variable)
 	{
-		if (!template.contains(String.format("{{%s}}", variable)))
-			throw new IllegalStateException();
-
 		return bindings.get(variable);
 	}
 
