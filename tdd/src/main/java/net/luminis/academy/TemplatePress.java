@@ -20,7 +20,7 @@ public class TemplatePress
 			throw new IllegalArgumentException();
 
 		this.template = template;
-		this.bindingRepository = new BindingRepository(template);
+		this.bindingRepository = new BindingRepository();
 	}
 
 	public String press()
