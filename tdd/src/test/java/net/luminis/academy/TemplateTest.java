@@ -30,7 +30,7 @@ public class TemplateTest
 	{
 		TemplateEngine templatePress = new TemplateEngine("Hello World!");
 
-		assertEquals("Hello World!", templatePress.press());
+		assertEquals("Hello World!", templatePress.apply());
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class TemplateTest
 	{
 		TemplateEngine templatePress = new TemplateEngine("Goodbye World!");
 
-		assertEquals("Goodbye World!", templatePress.press());
+		assertEquals("Goodbye World!", templatePress.apply());
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class TemplateTest
 		TemplateEngine templatePress = new TemplateEngine("Greetings {{species}}");
 		templatePress.bind("species").to("Earthlings");
 
-		assertEquals("Greetings Earthlings", templatePress.press());
+		assertEquals("Greetings Earthlings", templatePress.apply());
 	}
 
 	@Test(expected = IllegalStateException.class)
