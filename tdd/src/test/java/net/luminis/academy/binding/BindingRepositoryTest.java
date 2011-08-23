@@ -19,8 +19,8 @@ public class BindingRepositoryTest
 		assertNotNull(new BindingRepository("Hello World"));
 	}
 
-	@Test(expected = IllegalStateException.class)
-	public void shouldFailWhenAskedForASubstitutionWhichIsNotPresentInTemplate()
+	@Test
+	public void shouldBeAbleToBindASubstitutionWhichIsNotPresentInTemplate()
 	{
 		BindingRepository repository = new BindingRepository("{{aVariable}}");
 
